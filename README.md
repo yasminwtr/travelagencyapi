@@ -45,7 +45,7 @@
 
 - **Método:** `GET`  
 - **URL para buscar destinos pelo nome:** `/api/destinations/search?name=Paris`
-- **URL para buscar destinos pelo nome:** `/api/destinations/search?location=France`
+- **URL para buscar destinos pelo nome:** `/api/destinations/search?location=França`
 - **URL para buscar destinos pelo nome e localização:** `/api/destinations/search?name=Paris&location=França`
 - **Vai ser retornado os destinos em JSON:**
 
