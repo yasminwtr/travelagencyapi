@@ -34,9 +34,14 @@ public class DestinationService {
     }
 
     public Optional<Destination> addRatingToDestination(Long id, int rating) {
-        Optional<Destination> destination = getDestinationById(id);
-        destination.ifPresent(dest -> dest.addRating(rating));
-        return destination;
+        Optional<Destination> destinationOpt = getDestinationById(id);
+        
+        if (destinationOpt.isPresent()) {
+            Destination destination = destinationOpt.get();
+            destination.addRating(rating);
+            return Optional.of(destination);
+        }
+        return Optional.empty();
     }
 
     public boolean deleteDestination(Long id) {

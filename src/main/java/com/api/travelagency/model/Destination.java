@@ -7,16 +7,22 @@ public class Destination {
     private String description;
     private double averageRating; 
     private int totalRating;
+    private int reviewCount;
 
-    public Destination() {}
+    public Destination() {
+        this.averageRating = 0.0;
+        this.totalRating = 0;
+        this.reviewCount = 0;
+    }
 
     public Destination(Long id, String name, String location, String description, double averageRating) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.description = description;
-        this.averageRating = averageRating;
+        this.averageRating = 0.0;
         this.totalRating = 0;
+        this.reviewCount = 0;
     }
 
     public Long getId() { return id; }
@@ -34,21 +40,16 @@ public class Destination {
     public double getAverageRating() { return averageRating; }
     public void setAverageRating(double averageRating) { this.averageRating = averageRating; }
 
+    public int getReviewCount() { return reviewCount; }
+
     public void addRating(int newRating) {
         if (newRating < 1 || newRating > 10) {
             throw new IllegalArgumentException("Rating must be between 1 and 10.");
         }
-        
+
         totalRating += newRating;
+        reviewCount++;
 
-        int reviewCount = getReviewCount(); 
         averageRating = (double) totalRating / reviewCount;
-    }
-
-    public int getReviewCount() {
-        if (averageRating == 0) {
-            return 0;
-        }
-        return (int) (totalRating / averageRating);
     }
 }
