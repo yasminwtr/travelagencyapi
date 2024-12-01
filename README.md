@@ -81,7 +81,7 @@
 
 ### 5. Avaliação de Destino de Viagens:
 
-- **Método:** `GET`  
+- **Método:** `POST`  
 - **URL:** `/api/destinations/{id}/rate?rating=8`
 - **Apenas notas de 1 a 10.**
 - **Vai ser retornado o destino com a nova média calculada:**
